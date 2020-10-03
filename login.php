@@ -1,13 +1,13 @@
 <?php include('server.php') ?>
 <!DOCTYPE html>
-<html>
+<html lang = "en-US">
 <head>
   <title>Registration system PHP and MySQL</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="header">
-  	<h2>Log In</h2>
+  	<h2>Login Page</h2>
   </div>
 	 
   <form method="post" action="login.php">
@@ -24,7 +24,7 @@
   		<button type="submit" class="btn" name="login_user">Login</button>
   	</div>
   	<p>
-  		Not yet a member? <a href="register.php">Sign up</a>
+  		Not yet a member? <a href="register.php" class="btn">Sign up</a>
   	</p>
   </form>
 </body>
