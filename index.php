@@ -24,7 +24,7 @@
 </div>
 <div class="content">
   	<!-- notification message -->
-  	<?php if (isset($_SESSION['success'])) : ?>
+  	<?php  if (isset($_SESSION['username'])) : ?>
       <div class="error success" >
       	<h3>
           <?php 
@@ -34,11 +34,15 @@
       	</h3>
       </div>
   	<?php endif ?>
-
+	<!-- created database --->
+	<?php  if (isset($_SESSION['initialize'])) : ?>
+	<p> hey congratulations </p>
+	<?php endif ?>
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
     	<p> <a href="index.php?logout='1'" class = "btn">logout</a> </p>
+		<p> Intialize? <a href="initialize.php" class = "btn">Initialize</a> </p>
     <?php endif ?>
 </div>
 		
