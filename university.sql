@@ -423,14 +423,11 @@ INSERT INTO `User` (`user_id`, `username`, `password`) VALUES
 (1, 'Bryan', 'Password12345'),
 (2, 'N', '23'),
 (3,'john','pass1234'),
-(5, 's', '33'),
-(6, 's2', '313'),
-(7, 'G', '11'),
-(8, 'a', 'aa'),
-(13, 'Kapp', 'That\'s'),
-(14, 'That\'s', 'Kapp'),
-(15, 'OR \'1\' = \'1\'', '1'),
-(16, 'Whatever', 'Whatever');
+(4, 's', '33'),
+(5, 's2', '313'),
+(6, 'G', '11'),
+(7, 'a', 'aa'),
+(8, 'Whatever', 'Whatever');
 
 --
 -- Indexes for dumped tables
