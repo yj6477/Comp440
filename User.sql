@@ -41,11 +41,7 @@ CREATE TABLE `User` (
 INSERT INTO `User` (`user_id`, `username`, `password`) VALUES
 (1, 'Bryan', 'Password12345'),
 (2, 'N', '23'),
-<<<<<<< Updated upstream
-=======
 (3,'john','pass1234'),
->>>>>>> Stashed changes
-(4, 'Ass', 'Nibbas34'),
 (5, 's', '33'),
 (6, 's2', '313'),
 (7, 'G', '11'),
