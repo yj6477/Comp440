@@ -72,7 +72,11 @@ if (isset($_POST['login_user'])) {
     }
 }
 if (isset($_POST['initialize'])) {
+<<<<<<< Updated upstream
   if(strcmp("john", $_SESSION['username']) === 0 && strcmp("pass1234", $_SESSION['password']))
+=======
+  if(strcmp('john', $_SESSION['username']) === 0 && strcmp('pass1234', $_SESSION['password']) === 0)
+>>>>>>> Stashed changes
   {
   $query = '';
   $sqlScript = file('university.sql');
@@ -81,7 +85,12 @@ if (isset($_POST['initialize'])) {
 	$startWith = substr(trim($line), 0 ,2);
 	$endWith = substr(trim($line), -1 ,1);
 	
+<<<<<<< Updated upstream
 	if (empty($line) || $startWith == '--' || $startWith == '/*' || $startWith == '//') {
+=======
+  if (empty($line) || $startWith == '--' || $startWith == '/*' || $startWith == '//' 
+  || $startWith == " 1") {
+>>>>>>> Stashed changes
 		continue;
 	}
 		
@@ -91,7 +100,11 @@ if (isset($_POST['initialize'])) {
 		$query= '';		
 	}
 }
+<<<<<<< Updated upstream
 echo '<div class="success-response sql-import-response">SQL file imported successfully</div>';
+=======
+# echo '<div class="success-response sql-import-response">SQL file imported successfully</div>';
+>>>>>>> Stashed changes
 $_SESSION['success'] = "The database has been created";
 header('location: index.php');
 }
