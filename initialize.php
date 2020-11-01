@@ -15,7 +15,11 @@
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
     <?php endif ?>
     <div class="input-group">
+<<<<<<< Updated upstream
   		<button type="submit" class="btn" name="initialize">Create Database</button>
+=======
+  		<button type="submit" class="btn" name="initialize">Initialize Database?</button>
+>>>>>>> Stashed changes
   	</div>
     <p> <a href="index.php?logout='1'" class = "btn">logout</a> </p>
    </form>
