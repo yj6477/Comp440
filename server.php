@@ -6,7 +6,7 @@ $username = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', 'mysql', 'Project');
+$db = mysqli_connect('localhost', 'root', 'mysql', 'project');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -71,8 +71,9 @@ if (isset($_POST['login_user'])) {
         }
     }
 }
+
 if (isset($_POST['initialize'])) {
-  if(strcmp("john", $_SESSION['username']) === 0 && strcmp("pass1234", $_SESSION['password']))
+  if((strcmp("john", $_SESSION['username']) === 0 && strcmp("pass1234", $_SESSION['password']) === 0))
   {
   $query = '';
   $sqlScript = file('university.sql');
