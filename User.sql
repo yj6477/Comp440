@@ -41,7 +41,11 @@ CREATE TABLE `User` (
 INSERT INTO `User` (`user_id`, `username`, `password`) VALUES
 (1, 'Bryan', 'Password12345'),
 (2, 'N', '23'),
+<<<<<<< HEAD
+(4, 'Ass', 'Nibbas34'),
+=======
 (3,'john','pass1234'),
+>>>>>>> 150adcc81a4125b31f27c2e5771dc263bf279c75
 (5, 's', '33'),
 (6, 's2', '313'),
 (7, 'G', '11'),
