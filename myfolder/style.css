@@ -1,0 +1,70 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    font-size: 120%;
+    background: linear-gradient(rgba(227, 206, 228, 0.3),
+    rgba(227, 206, 228, 0.3)), url(purple_background.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: right top;
+    }
+  
+  .header {
+    width: 50%;
+    margin: 50px auto 0px;
+    color: white;
+    background: #b104a2e5;
+    text-align: center;
+    border: 1px solid #9e099e;
+    border-bottom: none;
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px;
+  }
+  
+  .input-group {
+    margin: 10px 0px 10px 0px;
+    color: white;
+  }
+  .input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+  }
+  .input-group input {
+    background: linear-gradient(rgb(237, 1, 250, 0.5),
+    rgb(242, 0, 255, 0.5));
+    color: white;
+    height: 30px;
+    width: 45%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid rgb(138, 9, 110);
+  }
+  .btn {
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: #b104a2e5;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .error {
+    width: 92%; 
+    margin: 0px auto; 
+    padding: 10px; 
+    border: 1px solid #a94442; 
+    color: #a94442; 
+    background: #f2dede; 
+    border-radius: 5px; 
+    text-align: left;
+  }
+  .success {
+    color: #3c763d; 
+    background: #dff0d8; 
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+  }
