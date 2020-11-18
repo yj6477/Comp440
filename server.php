@@ -81,17 +81,10 @@ if (isset($_POST['login_user'])) {
     }
 }
 if (isset($_POST['initialize'])) {
-<<<<<<< HEAD
   if(strcmp("john", $_SESSION['username']) === 0 && strcmp("pass1234", $_SESSION['password']) === 0)
   {
   $query = '';
   $sqlScript = file('BlogSite.sql');
-=======
-  if(strcmp("john", $_SESSION['username']) === 0 && strcmp("pass1234", $_SESSION['password']))
-  {
-  $query = '';
-  $sqlScript = file('university.sql');
->>>>>>> 150adcc81a4125b31f27c2e5771dc263bf279c75
   foreach ($sqlScript as $line)	{
 	
 	$startWith = substr(trim($line), 0 ,2);
@@ -112,11 +105,7 @@ $_SESSION['success'] = "The database has been created";
 header('location: index.php');
 }
 else {
-<<<<<<< HEAD
-  array_push($errors, "Incorrect User");
-=======
   array_push($errors, "Incorrect User. Must be john to perform this action");
->>>>>>> 150adcc81a4125b31f27c2e5771dc263bf279c75
 
 }
   

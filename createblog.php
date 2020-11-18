@@ -6,15 +6,23 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="header">
-  	<h2>Create the database</h2>
+<div class="header">
+	<h2>Create Blog</h2>
+
+  <div class = "container">
+    <form >
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="Subject" placeholder="What are you gonna talk about?">
+
+      <label for="description">Description</label>
+      <textarea id="description" name ="description" placeholder="Write what you're describing..." style="height: 200px"></textarea>
+
+      <label for="Tags">Tags</label>
+      <input type="text" id="tags" name="Tags" placeholder="put tags">
+
+      <input type="submit" value="Submit">
+    </form>
   </div>
-  <form method="post" action="initialize.php">
-  <?php include('errors.php'); ?>
-    <div class="input-group">
-  		<button type="submit" class="btn" name="initialize">Create Database</button>
-  	</div>
-    <p> <a href="index.php?logout='1'" class = "btn">logout</a> </p>
-   </form>
+</div>
 </body>
 </html>
