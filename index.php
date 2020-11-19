@@ -19,6 +19,16 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<header role = "banner">
+  <nav role = "navigation" class = "Sections">
+  	<ul>
+  		<li><a href="index.php" class = "SectionsPresent">Home</a></li>
+		<li><a href="initialize.php"class = "SectionsItem">Initialize</a></li>
+		<li><a href="comment.php" class="SectionsItem">Blogs</a></li>
+		<li><a href="createblog.php" class="SectionsItem">CreateBlogs</a></li>	
+	</ul>
+  </nav>
+</header>
 
 <div class="header">
 	<h2>Home Page</h2>
@@ -54,8 +64,7 @@
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
     	<p> <a href="index.php?logout='1'" class = "btn">logout</a> </p>
-		<p> Intialize? <a href="initialize.php" class = "btn">Initialize</a> </p>
-		<p> Create Blog <a href="createblog.php" class = "btn">create</a> </p>
+		
     <?php endif ?>
 </div>
 		

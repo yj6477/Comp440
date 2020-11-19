@@ -16,11 +16,40 @@
     margin: 50px auto 0px;
     color: white;
     background: #b104a2e5;
+    /* #b104a2e5 */
     text-align: center;
     border: 1px solid #9e099e;
     border-bottom: none;
     border-radius: 10px 10px 10px 10px;
     padding: 10px;
+  }
+  label{
+    display: block;
+    text-align: left;
+    margin: 3px;
+  }
+
+  input[type=text], textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  button[type=submit]{
+    background-color: #0c7c08;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button[type=submit]:hover{
+    background-color: #0bcc05;
   }
   
   .input-group {
@@ -68,3 +97,48 @@
     border: 1px solid #3c763d;
     margin-bottom: 20px;
   }
+
+  /*navigation list section*/
+.Sections{
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+}
+.Sections ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.Sections li{
+  display: inline;
+  text-decoration: none;
+  color: white;
+  font-size: 1.8em;
+}
+.SectionsItem{
+  margin: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: inline;
+  text-decoration: none;
+  color: #fdb0f3;
+  font-size: 1.0em;
+  font-weight: bold;
+}
+.SectionsPresent{
+  margin: 0;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: inline;
+  text-decoration: none;
+  color: white;
+  background-color: #9e099e;
+  font-size: 1.0em;
+  font-weight: bold;
+}
+/*highlights when the mouse hovers to that nav*/
+.SectionsItem:hover{
+  background-color:  #df1cdf;
+  color: white;
+}
