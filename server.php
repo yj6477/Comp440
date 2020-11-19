@@ -108,6 +108,38 @@ else {
   array_push($errors, "Incorrect User. Must be john to perform this action");
 
 }
-  
 }
+if (isset($_POST['create_blog'])) {
+  date_default_timezone_set('America/Los_Angeles');
+  $subject = mysqli_real_escape_string($db, $_POST['subject']);
+  $description = mysqli_real_escape_string($db, $_POST['description']);
+  $email = mysqli_real_escape_string($db, $_POST['email']);
+  $username = $_SESSION['username'];
+  $date = date("Y-m-d");
+  $tags = mysqli_real_escape_string($db, $_POST['tags']);
+  $pieces = explode(", ",$tags);
+  $query = "INSERT INTO Blogs(blogid, subject, description, postuser, pdate) VALUES
+  (NULL,'$subject','$description','$username', '$date')";
+  
+  if(mysqli_query($db, $query) === FALSE){
+      $_SESSION['restriction'] = mysqli_error($db);
+  }
+  else{
+  $query = "SELECT * FROM Blogs WHERE subject = '$subject' AND description = '$description' AND
+  postuser = '$username'";
+  $result = mysqli_query($db, $query);
+  $blog = mysqli_fetch_assoc($result);
+  $blogid = $blog['blogid'];
+  $_SESSION['success'] = "Blog has been saved";
+  foreach($pieces as $tag)
+  {
+    $query = ''; 
+    $query = "INSERT INTO BlogTags(blogid, tag) VALUES ('$blogid','$tag')";
+    mysqli_query($db, $query) or die('<div class="error-response sql-query-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+    
+  }
+  }
+  header('location: index.php');
+}
+
 ?>

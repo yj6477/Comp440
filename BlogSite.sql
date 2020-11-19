@@ -63,8 +63,8 @@ INSERT INTO `users` (`username`, `password`, `firstname`, `lastname`, `email`) V
 ('ppach3', 'DcXvVyJp', 'Paulie', 'Pach', 'ppach3@yale.edu'),
 ('roriordan7', 'I4jKJ9BnP', 'Ruth', 'Riordan', 'roriordan7@oracle.com'),
 ('test', 'pass1234', 'test', 'comp440', 'test@csun.edu'),
-('zeller6', 'lowlbJj7K', 'Zorah', 'Eller', 'zeller6@barnesandnoble.com');
-
+('zeller6', 'lowlbJj7K', 'Zorah', 'Eller', 'zeller6@barnesandnoble.com'),
+('john', 'pass1234', 'John', 'Wick', 'johnwick@gmail.com');
 
 DROP TABLE IF EXISTS Hobbies;
 CREATE TABLE Hobbies(
@@ -139,3 +139,51 @@ INSERT INTO `comments` (`commentid`, `sentiment`, `description`, `cdate`, `blogi
 (13, 'positive', 'This is a nice blog. I like the comparison between blockchain and the Internet.', '2020-11-10', 11, 'eklemke0');
 
 SET FOREIGN_KEY_CHECKS = 1;
+-- DROP TRIGGER IF EXISTS atMost1CommentPerBlog;
+-- DELIMITER $$
+-- CREATE TRIGGER `atMost1CommentPerBlog` BEFORE INSERT ON `Comments` FOR EACH ROW BEGIN
+--       DECLARE rowcount INT;
+--       SELECT COUNT(*) INTO rowcount FROM commnets
+--       WHERE New.blogid =  Comments.blogid AND New.author = Comments.author;
+--       IF (rowcount >= 1) THEN
+--          signal sqlstate '45000' set message_text = 'Only 1 comment per blog.';
+--       END IF;
+-- END
+-- $$
+-- DELIMITER ;
+-- DROP TRIGGER IF EXISTS atMost3CommentsPerDay;
+-- DELIMITER $$
+-- CREATE TRIGGER `atMost3CommentsPerDay` BEFORE INSERT ON `Comments` FOR EACH ROW BEGIN
+--       DECLARE rowcount INT;
+--       SELECT COUNT(*) INTO rowcount FROM comments
+--       WHERE author = NEW.author AND cdate = CURDATE();
+--       IF (rowcount >= 3) THEN
+--         signal sqlstate '45000' set message_text = 'You can not post more than three comments a day! Please try tomorrow.';
+--       END IF;
+-- END
+-- $$
+-- DELIMITER ;
+-- DROP TRIGGER IF EXISTS noSelfComment;
+-- DELIMITER $$
+-- CREATE TRIGGER `noSelfComment` BEFORE INSERT ON `Comments` FOR EACH ROW BEGIN
+--       DECLARE rowcount INT;
+--       SELECT COUNT(*) INTO rowcount FROM blogs,comments
+--       WHERE Comments.blogid = Blogs.blogid AND New.author = Blogs.postuser;
+--       IF (rowcount >= 1) THEN
+--          signal sqlstate '45000' set message_text = 'No self comment.';
+--       END IF;
+-- END
+-- $$
+-- DELIMITER ;
+-- DROP TRIGGER IF EXISTS atMost2BlogsPerDay;
+-- DELIMITER $$
+-- CREATE TRIGGER `atMost2BlogsPerDay` BEFORE INSERT ON `Blogs` FOR EACH ROW BEGIN
+--       DECLARE rowcount INT;
+--       SELECT COUNT(*) INTO rowcount FROM blogs
+--       WHERE postuser = NEW.postuser AND pdate = CURDATE();
+--       IF (rowcount >= 2) THEN
+--          signal sqlstate '45000' set message_text = 'You can not post more than two belogs a day! Please try tomorrow.';
+--       END IF;
+-- END
+-- $$
+-- DELIMITER ;

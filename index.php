@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <?php 
   session_start(); 
 
@@ -34,10 +35,21 @@
       	</h3>
       </div>
   	<?php endif ?>
+	  <?php  if (isset($_SESSION['restriction'])) : ?>
+      <div class="error restriction" >
+      	<h3>
+          <?php 
+          	echo $_SESSION['restriction']; 
+          	unset($_SESSION['restriction']);
+          ?>
+      	</h3>
+      </div>
+  	<?php endif ?>
 	<!-- created database --->
 	<?php  if (isset($_SESSION['initialize'])) : ?>
 	<p> hey congratulations </p>
 	<?php endif ?>
+	<?php include('errors.php'); ?>
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
