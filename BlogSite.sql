@@ -2,6 +2,15 @@ USE Project;
 
 SET FOREIGN_KEY_CHECKS=0;
 
+DROP TABLE IF EXISTS Users;  
+CREATE TABLE Users(
+	username VARCHAR(20) NOT NULL,
+	password VARCHAR(20),
+	firstname VARCHAR(30),
+	lastname VARCHAR(30),
+	email VARCHAR(50) NOT NULL,
+	PRIMARY KEY (username)
+	);
 DROP TABLE IF EXISTS Follows;
 CREATE TABLE Follows(
 	leader VARCHAR(20),
@@ -43,15 +52,6 @@ CREATE TABLE Blogs(
 	FOREIGN KEY (postuser) references Users(username)
 );
 
-DROP TABLE IF EXISTS Users;  
-CREATE TABLE Users(
-	username VARCHAR(20) NOT NULL,
-	password VARCHAR(20),
-	firstname VARCHAR(30),
-	lastname VARCHAR(30),
-	email VARCHAR(50) NOT NULL,
-	PRIMARY KEY (username)
-	);
 INSERT INTO `users` (`username`, `password`, `firstname`, `lastname`, `email`) VALUES
 ('bdmytryk5', 'jYMks6i0MQeh', 'Bliss', 'Dmytryk', 'bdmytryk5@patch.com'),
 ('cheathorn9', 'zDA26lfoWJM', 'Cherilyn', 'Heathorn', 'cheathorn9@discovery.com'),

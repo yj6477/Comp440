@@ -22,6 +22,7 @@ if (isset($_POST['reg_user'])) {
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
+  if (empty($password_2)) { array_push($errors, "Password is required"); }
   if (empty($firstname)) { array_push($errors, "Firstname is required"); }
   if (empty($lastname)) { array_push($errors, "lastname is required"); }
   if ($password_1 != $password_2) {
@@ -48,7 +49,7 @@ if (isset($_POST['reg_user'])) {
   			  VALUES('$username', '$password_1','$firstname', '$lastname', '$email')";
   	mysqli_query($db, $query);
     $_SESSION['username'] = $username;
-    $_SESSION['password'] = $password;
+    $_SESSION['password'] = $password_1;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: index.php');
   }
@@ -102,6 +103,19 @@ if (isset($_POST['initialize'])) {
 }
 echo '<div class="success-response sql-import-response">SQL file imported successfully</div>';
 $_SESSION['success'] = "The database has been created";
+$query = "DROP TRIGGER IF EXISTS atMost1CommentPerBlog;";
+mysqli_query($db,$query) or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+;
+$query = "CREATE TRIGGER `atMost1CommentPerBlog` BEFORE INSERT ON `Comments` FOR EACH ROW BEGIN
+      DECLARE rowcount INT;
+      SELECT COUNT(*) INTO rowcount FROM commnets
+      WHERE New.blogid =  Comments.blogid AND New.author = Comments.author;
+      IF (rowcount >= 1) THEN
+         signal sqlstate '45000' set message_text = 'Only 1 comment per blog.';
+      END IF;
+END;";
+mysqli_query($db,$query) or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+;
 header('location: index.php');
 }
 else {
@@ -136,10 +150,33 @@ if (isset($_POST['create_blog'])) {
     $query = ''; 
     $query = "INSERT INTO BlogTags(blogid, tag) VALUES ('$blogid','$tag')";
     mysqli_query($db, $query) or die('<div class="error-response sql-query-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
-    
   }
   }
   header('location: index.php');
 }
-
+if (isset($_POST['comment'])){
+  date_default_timezone_set('America/Los_Angeles');
+  $subject = mysqli_real_escape_string($db, $_POST['subject']);
+  $blog_description = mysqli_real_escape_string($db, $_POST['description']);
+  $postuser = mysqli_real_escape_string($db, $_POST['postuser']);
+  $comment_description = mysqli_real_escape_string($db, $_POST['Comment']);
+  $rating = mysqli_real_escape_string($db, $_POST['rate']);
+  $username = $_SESSION['username'];
+  $date = date("Y-m-d");
+  $query = "SELECT * FROM Blogs WHERE subject = '$subject' AND description = '$blog_description' AND
+  postuser='$postuser'";
+  $result = mysqli_query($db, $query);
+  $blog = mysqli_fetch_assoc($result);
+  $blogid = $blog['blogid'];
+  $query = "INSERT INTO Comments(commentid, sentiment, description, cdate, blogid, author) VALUES 
+  (NULL, '$rating','$comment_description','$date','$blogid','$username');";
+   if(mysqli_query($db, $query) === FALSE)
+   {
+    $_SESSION['restriction'] = mysqli_error($db);
+  }
+else{
+  $_SESSION['success'] = "Comment has been saved";
+}
+  header('location: index.php');
+}
 ?>
