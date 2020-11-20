@@ -101,21 +101,59 @@ if (isset($_POST['initialize'])) {
 		$query= '';		
 	}
 }
+$query = "DROP TRIGGER IF EXISTS atMost1CommentPerBlog;";
+$query .= "CREATE TRIGGER `atMost1CommentPerBlog` BEFORE INSERT ON `Comments` FOR EACH ROW BEGIN
+    DECLARE rowcount INT;
+    SELECT COUNT(*) INTO rowcount FROM comments
+    WHERE New.blogid =  Comments.blogid AND New.author = Comments.author;
+    IF (rowcount >= 1) THEN
+       signal sqlstate '45000' set message_text = 'Only 1 comment per blog.';
+    END IF;
+END;";
+//echo $query;
+// mysqli_multi_query($db,$query)  or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+
+// $query = "DROP TRIGGER IF EXISTS atMost2BlogsPerDay;";
+// $query .= "CREATE TRIGGER `atMost2BlogsPerDay` BEFORE INSERT ON `Blogs` FOR EACH ROW BEGIN
+//        DECLARE rowcounter INT;
+//        SELECT COUNT(*) INTO rowcounter FROM blogs
+//        WHERE postuser = NEW.postuser AND pdate = CURDATE();
+//        IF (rowcount >= 2) THEN
+//           signal sqlstate '45000' set message_text = 'You can not post more than two blogs a day! Please try tomorrow.';
+//        END IF;
+// // END;";
+// echo $query;
+// mysqli_multi_query($db,$query)  or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+
+// $query = '';
+// $query = "DROP TRIGGER IF EXISTS noSelfComment;";
+// $query .= "CREATE TRIGGER `noSelfComment` BEFORE INSERT ON `comments`
+//  FOR EACH ROW BEGIN	
+// 	DECLARE rowcount INT;
+//     SELECT COUNT(*) INTO rowcount FROM blogs,comments	
+//     WHERE NEW.blogid = Blogs.blogid AND New.author = Blogs.postuser;
+//     IF (rowcount >= 1) THEN	
+//     	signal SQLSTATE '45000' set MESSAGE_TEXT = 'No self comment.';
+//         END IF;
+// END;";
+// mysqli_multi_query($db,$query)  or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+
+// $query = '';
+// $query = "DROP TRIGGER IF EXISTS atMost3CommentsPerDay;";
+// $query .= "CREATE TRIGGER `atMost3CommentsPerDay` BEFORE INSERT ON `comments`
+// FOR EACH ROW BEGIN
+//      DECLARE rowcount INT;
+//      SELECT COUNT(*) INTO rowcount FROM comments
+//      WHERE author = NEW.author AND cdate = CURDATE();
+//      IF (rowcount >= 3) THEN
+//        signal sqlstate '45000' set message_text = 'You can not post more than three comments a day! Please try tomorrow.';
+//      END IF;
+// END;";
+// mysqli_multi_query($db,$query)  or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+
+
 echo '<div class="success-response sql-import-response">SQL file imported successfully</div>';
 $_SESSION['success'] = "The database has been created";
-$query = "DROP TRIGGER IF EXISTS atMost1CommentPerBlog;";
-mysqli_query($db,$query) or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
-;
-$query = "CREATE TRIGGER `atMost1CommentPerBlog` BEFORE INSERT ON `Comments` FOR EACH ROW BEGIN
-      DECLARE rowcount INT;
-      SELECT COUNT(*) INTO rowcount FROM commnets
-      WHERE New.blogid =  Comments.blogid AND New.author = Comments.author;
-      IF (rowcount >= 1) THEN
-         signal sqlstate '45000' set message_text = 'Only 1 comment per blog.';
-      END IF;
-END;";
-mysqli_query($db,$query) or die('<div class="error-response sql-import-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
-;
 header('location: index.php');
 }
 else {
@@ -124,6 +162,7 @@ else {
 }
 }
 if (isset($_POST['create_blog'])) {
+  mysqli_multi_query($db,$query);
   date_default_timezone_set('America/Los_Angeles');
   $subject = mysqli_real_escape_string($db, $_POST['subject']);
   $description = mysqli_real_escape_string($db, $_POST['description']);
