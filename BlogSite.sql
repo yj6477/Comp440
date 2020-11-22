@@ -98,29 +98,29 @@ INSERT INTO `follows` (`leader`, `follower`) VALUES
 ('zeller6', 'test');
 
 INSERT INTO `blogs` (`blogid`, `subject`, `description`, `postuser`, `pdate`) VALUES
-(1, 'magna vulputate luctus cum sociis', 'at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus', 'eklemke0', '2020-07-05'),
-(2, 'in imperdiet', 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et', 'kjeroch1', '2020-06-26'),
-(3, 'cubilia curae donec', 'eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu', 'hgude2', '2020-04-15'),
-(4, 'quis justo maecenas rhoncus', 'proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis', 'ppach3', '2020-01-15'),
-(5, 'justo pellentesque viverra pede ac', 'tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante', 'irottery4', '2020-09-15'),
-(6, 'a odio in hac habitasse', 'id sapien in sapien iaculis congue vivamus metus arcu adipiscing', 'bdmytryk5', '2019-12-08'),
-(7, 'duis aliquam', 'nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna', 'zeller6', '2020-06-16'),
-(8, 'lacinia erat vestibulum sed', 'est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum', 'roriordan7', '2020-05-26'),
-(9, 'maecenas tristique', 'ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis', 'mgebhardt8', '2020-02-20'),
-(10, 'dolor quis odio', 'at velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id', 'cheathorn9', '2020-03-12'),
+(1, 'We have granted to God', 'In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free', 'eklemke0', '2020-07-05'),
+(2, 'Fog everywhere', 'Fog up the river, where it flows among green aits and meadows; fog down the river; Fog on the Essex marshes, fog on the Kentish heights.', 'kjeroch1', '2020-06-26'),
+(3, 'victorious wreaths', 'Now are our brows bound with victorious wreaths; Our bruised arms hung up for monuments; Our stern alarums changed to merry meetings, Our dreadful marches to delightful measures.', 'hgude2', '2020-04-15'),
+(4, 'Eurypylus, son of Euaemon', 'And Eurypylus, son of Euaemon, killed Hypsenor, the son of noble Dolopion, who had been made priest of the river Scamander, and was honoured among the people as though he were a god.', 'ppach3', '2020-01-15'),
+(5, 'The son of Tydeus', 'As for the son of Tydeus, you could not say whether he was more among the Achaeans or the Trojans. He rushed across the plain like a winter torrent that has burst its barrier in full flood', 'irottery4', '2020-09-15'),
+(6, 'Pope Innocent III', 'Pope Innocent III, before the quarrel arose between us and our barons: and this we will observe, and our will is that it be observed in good faith by our heirs forever.', 'bdmytryk5', '2019-12-08'),
+(7, 'Our kingdom', 'We have also granted to all freemen of our kingdom, for us and our heirs forever, all the underwritten liberties, to be had and held by them and their heirs, of us and our heirs forever.', 'zeller6', '2020-06-16'),
+(8, 'Queer little streets', 'all the queer little streets and the pink and blue and yellow houses and the rosegardens and the jessamine and geraniums and cactuses and Gibraltar as a girl', 'roriordan7', '2020-05-26'),
+(9, 'Medals you wear', 'Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon,', 'mgebhardt8', '2020-02-20'),
+(10, 'Keep moving on', 'Every stop I make, I make a new friend. Can’t stay for long, just turn around and I’m gone again. Maybe tomorrow, I’ll want to settle down, Until tomorrow, I’ll just keep moving on.', 'cheathorn9', '2020-03-12'),
 (11, 'The future of blockchain', 'Blockchain is a buzz word nowadays. We will take about the future world of blockchain', 'test', '2020-11-03');
 
 INSERT INTO `blogtags` (`blogid`, `tag`) VALUES
-(1, 'vulputate'),
-(2, 'imperdiet'),
-(3, 'cubilia'),
-(4, 'quis justo'),
-(5, 'vivirra'),
-(6, 'habitasse'),
-(7, 'duisali'),
-(8, 'lacinia'),
-(9, 'maecenas'),
-(10, 'dolor'),
+(1, 'God'),
+(2, 'Fog'),
+(3, 'victorious'),
+(4, 'Eurypylus'),
+(5, 'Tydeus'),
+(6, 'pop III'),
+(7, 'kingdom'),
+(8, 'streets'),
+(9, 'Medals'),
+(10, 'moving on'),
 (11, 'blockchain');
 
 INSERT INTO `comments` (`commentid`, `sentiment`, `description`, `cdate`, `blogid`, `author`) VALUES
