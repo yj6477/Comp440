@@ -167,8 +167,8 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- DELIMITER $$
 -- CREATE TRIGGER `noSelfComment` BEFORE INSERT ON `Comments` FOR EACH ROW BEGIN
 --       DECLARE rowcount INT;
---       SELECT COUNT(*) INTO rowcount FROM blogs,comments
---       WHERE Comments.blogid = Blogs.blogid AND New.author = Blogs.postuser;
+--       SELECT COUNT(*) INTO rowcount FROM Blogs
+--       WHERE New.blogid = Blogs.blogid AND New.author = Blogs.postuser;
 --       IF (rowcount >= 1) THEN
 --          signal sqlstate '45000' set message_text = 'No self comment.';
 --       END IF;
@@ -182,7 +182,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 --       SELECT COUNT(*) INTO rowcount FROM blogs
 --       WHERE postuser = NEW.postuser AND pdate = CURDATE();
 --       IF (rowcount >= 2) THEN
---          signal sqlstate '45000' set message_text = 'You can not post more than two belogs a day! Please try tomorrow.';
+--          signal sqlstate '45000' set message_text = 'You can not post more than two blogs a day! Please try tomorrow.';
 --       END IF;
 -- END
 -- $$
