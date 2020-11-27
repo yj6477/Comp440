@@ -58,13 +58,15 @@ INSERT INTO `users` (`username`, `password`, `firstname`, `lastname`, `email`) V
 ('eklemke0', 'tfdgkDi', 'Ethel', 'Klemke', 'eklemke0@bandcamp.com'),
 ('hgude2', '2DLOfAL', 'Hector', 'Gude', 'hgude2@fastcompany.com'),
 ('irottery4', 'q5MwiCsQr02', 'Isidro', 'Rottery', 'irottery4@exblog.jp'),
+('john', 'pass1234', 'john', 'admin', 'john@admin.com'),
 ('kjeroch1', 'jKFEqKG0', 'Karalynn', 'Jeroch', 'kjeroch1@huffingtonpost.com'),
 ('mgebhardt8', 'Ch5tY4B2RQS', 'Marigold', 'Gebhardt', 'mgebhardt8@google.it'),
 ('ppach3', 'DcXvVyJp', 'Paulie', 'Pach', 'ppach3@yale.edu'),
 ('roriordan7', 'I4jKJ9BnP', 'Ruth', 'Riordan', 'roriordan7@oracle.com'),
+('silent', 'silent123', 'silence', 'nopost', 'silence@nopost.com'),
+('silentbro', 'silent456', 'brosilence', 'nopost', 'silencebro@nopost.com'),
 ('test', 'pass1234', 'test', 'comp440', 'test@csun.edu'),
-('zeller6', 'lowlbJj7K', 'Zorah', 'Eller', 'zeller6@barnesandnoble.com'),
-('john', 'pass1234', 'John', 'Wick', 'johnwick@gmail.com');
+('zeller6', 'lowlbJj7K', 'Zorah', 'Eller', 'zeller6@barnesandnoble.com');
 
 DROP TABLE IF EXISTS Hobbies;
 CREATE TABLE Hobbies(
@@ -93,13 +95,17 @@ INSERT INTO `follows` (`leader`, `follower`) VALUES
 ('bdmytryk5', 'irottery4'),
 ('eklemke0', 'irottery4'),
 ('test', 'irottery4'),
+('test', 'john'),
+('zeller6', 'john'),
+('john', 'kjeroch1'),
 ('zeller6', 'kjeroch1'),
 ('test', 'mgebhardt8'),
+('john', 'test'),
 ('zeller6', 'test');
 
 INSERT INTO `blogs` (`blogid`, `subject`, `description`, `postuser`, `pdate`) VALUES
 (1, 'We have granted to God', 'In the first place we have granted to God, and by this our present charter confirmed for us and our heirs forever that the English Church shall be free', 'eklemke0', '2020-07-05'),
-(2, 'Fog everywhere', 'Fog up the river, where it flows among green aits and meadows; fog down the river; Fog on the Essex marshes, fog on the Kentish heights.', 'kjeroch1', '2020-06-26'),
+(2, 'Fog everywhere', 'Fog up the river, where it flows among green aits and meadows; fog down the river; Fog on the Essex marshes, fog on the Kentish heights.', 'kjeroch1', '2020-10-10'),
 (3, 'victorious wreaths', 'Now are our brows bound with victorious wreaths; Our bruised arms hung up for monuments; Our stern alarums changed to merry meetings, Our dreadful marches to delightful measures.', 'hgude2', '2020-04-15'),
 (4, 'Eurypylus, son of Euaemon', 'And Eurypylus, son of Euaemon, killed Hypsenor, the son of noble Dolopion, who had been made priest of the river Scamander, and was honoured among the people as though he were a god.', 'ppach3', '2020-01-15'),
 (5, 'The son of Tydeus', 'As for the son of Tydeus, you could not say whether he was more among the Achaeans or the Trojans. He rushed across the plain like a winter torrent that has burst its barrier in full flood', 'irottery4', '2020-09-15'),
@@ -108,7 +114,9 @@ INSERT INTO `blogs` (`blogid`, `subject`, `description`, `postuser`, `pdate`) VA
 (8, 'Queer little streets', 'all the queer little streets and the pink and blue and yellow houses and the rosegardens and the jessamine and geraniums and cactuses and Gibraltar as a girl', 'roriordan7', '2020-05-26'),
 (9, 'Medals you wear', 'Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon,', 'mgebhardt8', '2020-02-20'),
 (10, 'Keep moving on', 'Every stop I make, I make a new friend. Can’t stay for long, just turn around and I’m gone again. Maybe tomorrow, I’ll want to settle down, Until tomorrow, I’ll just keep moving on.', 'cheathorn9', '2020-03-12'),
-(11, 'The future of blockchain', 'Blockchain is a buzz word nowadays. We will take about the future world of blockchain', 'test', '2020-11-03');
+(11, 'The future of blockchain', 'Blockchain is a buzz word nowadays. We will take about the future world of blockchain', 'test', '2020-10-10'),
+(12, 'Today is a lucky day.', 'I feel lucky today. My program shows no bug.', 'test', '2020-10-10'),
+(13, 'Fog Chance People', 'Chance people on the bridges peeping over the parapets into a nether sky of fog, with fog all round them, as if they were up in a balloon and hanging in the misty clouds.', 'kjeroch1', '2020-10-10');
 
 INSERT INTO `blogtags` (`blogid`, `tag`) VALUES
 (1, 'God'),
@@ -125,7 +133,7 @@ INSERT INTO `blogtags` (`blogid`, `tag`) VALUES
 
 INSERT INTO `comments` (`commentid`, `sentiment`, `description`, `cdate`, `blogid`, `author`) VALUES
 (1, 'positive', 'vestibulum proin eu mi nulla ac enim in', '2020-01-30', 1, 'kjeroch1'),
-(2, 'negative', 'lobortis convallis tortor risus dapibus augue vel accumsan', '2019-11-20', 11, 'hgude2'),
+(2, 'negative', 'I don\'t like it. ', '2019-11-20', 11, 'hgude2'),
 (3, 'negative', 'orci luctus et ultrices posuere cubilia curae', '2020-08-02', 2, 'ppach3'),
 (4, 'negative', 'nulla dapibus dolor vel est donec odio justo sollicitudin', '2020-01-23', 3, 'irottery4'),
 (5, 'positive', 'cras in purus eu magna vulputate luctus cum sociis natoque', '2020-03-19', 5, 'bdmytryk5'),
@@ -134,7 +142,7 @@ INSERT INTO `comments` (`commentid`, `sentiment`, `description`, `cdate`, `blogi
 (8, 'positive', 'libero nullam sit amet turpis elementum ligula', '2020-09-23', 8, 'mgebhardt8'),
 (9, 'positive', 'suspendisse potenti cras in purus eu', '2020-04-11', 9, 'cheathorn9'),
 (10, 'negative', 'magna at nunc commodo placerat praesent blandit nam nulla', '2020-01-21', 10, 'eklemke0'),
-(11, 'positive', 'viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum', '2020-06-10', 11, 'kjeroch1'),
+(11, 'positive', 'Awesome. I strongly recommend the view.', '2020-06-10', 11, 'kjeroch1'),
 (12, 'positive', 'feugiat non pretium quis lectus', '2020-11-14', 5, 'test'),
 (13, 'positive', 'This is a nice blog. I like the comparison between blockchain and the Internet.', '2020-11-10', 11, 'eklemke0');
 
