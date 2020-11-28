@@ -6,6 +6,17 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<header role = "banner">
+  <nav role = "navigation" class = "Sections">
+  	<ul>
+  		<li><a href="index.php" class = "SectionsItem">Home</a></li>
+		<li><a href="initialize.php"class = "SectionsItem">Initialize</a></li>
+		<li><a href="comment.php" class="SectionsItem">Blogs</a></li>
+		<li><a href="createblog.php" class="SectionsItem">CreateBlogs</a></li>
+    <li><a href="display.php" class ="SectionsPresent">DisplayQuery</a></li>
+	</ul>
+  </nav>
+</header>
   <div class="header">
   	<h2>Create the database</h2>
   </div>

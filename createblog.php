@@ -13,6 +13,7 @@
 		<li><a href="initialize.php"class = "SectionsItem">Initialize</a></li>
 		<li><a href="comment.php" class="SectionsItem">Blogs</a></li>
 		<li><a href="createblog.php" class="SectionsPresent">CreateBlogs</a></li>	
+    <li><a href="display.php" class ="SectionsItem">DisplayQuery</a></li>	
 	</ul>
   </nav>
 </header>
