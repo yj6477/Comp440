@@ -4,7 +4,6 @@ session_start();
 // initializing variables
 $username = "";
 $errors = array(); 
-
 // connect to the database
 $db = mysqli_connect('localhost', 'root', 'mysql', 'Project');
 
@@ -225,5 +224,22 @@ else{
   $_SESSION['success'] = "Comment has been saved";
 }
   header('location: index.php');
+}
+if(isset($_POST['query1'])){
+  $_SESSION['query1'] = mysqli_real_escape_string($db, $_POST['user1-1']);
+  header('location: query1.php');
+}
+if (isset($_POST['query3'])) {
+  $_SESSION['query3-1'] = mysqli_real_escape_string($db, $_POST['user1-2']);
+  $_SESSION['query3-2'] = mysqli_real_escape_string($db, $_POST['user2-2']);
+  header('location: query3.php');
+}
+if (isset($_POST['query'])) {
+  $value = mysqli_real_escape_string($db, $_POST['query']);
+  $_SESSION['query'] = $value;
+  echo $_SESSION['query'];
+  // $query = "enter";
+  // mysqli_query($db, $query) or die('<div class="error-response sql-query-response">Problem in executing the SQL query <b>' . $query. '</b></div>');
+   header('location: query.php');
 }
 ?>

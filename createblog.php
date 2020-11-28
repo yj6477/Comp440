@@ -30,7 +30,7 @@
         <textarea id="description" name ="description" placeholder="Write what you're describing..." style="height: 200px"></textarea>
         
         <label>Tags</label>
-        <input type="text" id="tags" name="tags" placeholder="put tags">
+        <input type="text" id="tags" name="tags" placeholder="put tags seperated by comma">
       
      
         <button type="submit" class="btn" name="create_blog">Submit</button>
