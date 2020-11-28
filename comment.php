@@ -66,14 +66,14 @@
     $postuser = $row["postuser"];
     $pdate = $row["pdate"];
     $description = $row["description"];
-    echo "<button class='accordion'>Subject: $subject &nbsp&nbsp&nbsp&nbsp&nbsp;User: $postuser &nbsp&nbsp&nbsp&nbsp&nbsp;Date: $pdate</button> 
+    echo "<button class='accordion'>Subject: $subject &nbsp&nbsp&nbsp&nbsp&nbsp;User: $postuser &nbsp&nbsp&nbsp&nbsp&nbsp;Date: $pdate></button> 
     <div class='panel'>
     <form method='post' action='comment.php'>
     <input style='display: none; overflow-x: visible; overflow-y: visible;'type='text' id='subject' value = '$subject' name='subject' readonly></input>
     <input style='display: none; overflow-x: visible; overflow-y: visible;'type='text' id='postuser' value = '$postuser' name='postuser' readonly></input>
     <label class ='Sec'>Descriptions</label>
     <textarea id='description' name ='description' style='height: 200px'readonly>$description</textarea>
-      <label class ='Sec'>Rate the post Nigga</label>
+      <label class ='Sec'>Rate the post</label>
       <select name='rate'>
         <option value='positive'>Positive</option>
         <option value='negative'>Negative</option>
