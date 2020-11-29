@@ -6,19 +6,8 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<header role = "banner">
-  <nav role = "navigation" class = "Sections">
-  	<ul>
-  		<li><a href="index.php" class = "SectionsItem">Home</a></li>
-		<li><a href="initialize.php"class = "SectionsItem">Initialize</a></li>
-		<li><a href="comment.php" class="SectionsItem">Blogs</a></li>
-		<li><a href="createblog.php" class="SectionsItem">CreateBlogs</a></li>
-    <li><a href="display.php" class ="SectionsPresent">DisplayQuery</a></li>
-	</ul>
-  </nav>
-</header>
   <div class="header">
-  	<h2>Create the database</h2>
+  	<h2>Queries</h2>
   </div>
   <?php  if (isset($_SESSION['restriction'])) : ?>
       <div class="error restriction" >
@@ -49,4 +38,5 @@
     <p> Query 6 </p>
     <button type="submit" class="btn" name="query" value=6>Go</button>
 </form>
+<p> <a href="index.php" class = "btn">Back to main page</a> </p>
 </body>

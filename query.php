@@ -69,9 +69,8 @@ else
 {
   $query6 = "SELECT username 
   FROM Users as U 
-  WHERE U.username IN (Select DISTINCT postuser FROM Blogs) 
-  AND username NOT IN
-  (SELECT DISTINCT B.blogid
+  WHERE U.username NOT IN
+  (SELECT DISTINCT B.postuser
   FROM Blogs as B, Comments as C
   WHERE B.blogid = C.blogid AND C.sentiment = 'negative')";
   echo "<p class = 'bigtext'>Display those users such that all the blogs they posted so far never received any
@@ -83,5 +82,7 @@ else
   }
 }
 ?>
+<p> <a href="display.php" class = "btn">Display</a> </p>
 </body>
 </html>
+
