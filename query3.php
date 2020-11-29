@@ -38,5 +38,6 @@ while($row3 = mysqli_fetch_assoc($result3)){
 else
 {echo "<p class = 'bigtext'> No users are followed by both $first and $second";}
 ?>
+<p> <a href="display.php" class = "btn">Display</a> </p>
 </body>
 </html>
