@@ -226,13 +226,27 @@ else{
   header('location: index.php');
 }
 if(isset($_POST['query1'])){
+  if($_POST['user1-1']){
   $_SESSION['query1'] = mysqli_real_escape_string($db, $_POST['user1-1']);
   header('location: query1.php');
+  }
+  else
+  {
+    $_SESSION['restriction'] = "Invalid form";
+    array_push($errors, "Data not filled out");
+  }
 }
 if (isset($_POST['query3'])) {
+  if($_POST['user1-2'] &&  $_POST['user2-2']){
   $_SESSION['query3-1'] = mysqli_real_escape_string($db, $_POST['user1-2']);
   $_SESSION['query3-2'] = mysqli_real_escape_string($db, $_POST['user2-2']);
   header('location: query3.php');
+  }
+  else
+  {
+    $_SESSION['restriction'] = "Invalid form";
+    array_push($errors, "Data not filled out");
+  }
 }
 if (isset($_POST['query'])) {
   $value = mysqli_real_escape_string($db, $_POST['query']);

@@ -10,7 +10,7 @@
   	<h2>Queries</h2>
   </div>
   <?php  if (isset($_SESSION['restriction'])) : ?>
-      <div class="error restriction" >
+      <div class='error'>
       	<h3>
           <?php 
           	echo $_SESSION['restriction']; 
