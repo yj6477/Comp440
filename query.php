@@ -32,7 +32,7 @@ if($value == 2)
   echo "<p class = 'bigtext'>List the users who posted the most number of blogs on 10/10/2020; if there is a tie, list all the users who have a tie.</p>";
   while($row2 = mysqli_fetch_assoc($result2)){
     $users = $row2["postuser"];
-    $NumBlogs=$row2["COUNT(postuser)"];
+    $NumBlogs=$row2["userCount"];
     echo "<p class = 'bigtext'>&nbsp&nbsp&nbsp&nbsp&nbsp $users have the most blogs posted with the amount of $NumBlogs</p>";	
   }
 }
