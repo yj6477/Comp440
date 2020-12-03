@@ -19,14 +19,15 @@
 $value = $_SESSION['query'];
 if($value == 2)
 {
-  $query2 = "SELECT COUNT(postuser), postuser
-  FROM Blogs 
-  GROUP BY postuser 
-  HAVING COUNT(postuser) = (Select MAX(I.userCount) as maxCOUNT
-  FROM (SELECT COUNT(postuser) as userCount, postuser
-  FROM Blogs 
-  GROUP BY postuser
-  ORDER BY COUNT(postuser)) as I)";
+  $query2 = "SELECT userCount, postuser
+  FROM
+  (SELECT COUNT(postuser) as userCount, postuser, pdate 
+  FROM Blogs GROUP BY postuser, pdate 
+  HAVING pdate = '2020-10-10') as I
+  WHERE userCount = (Select MAX(I.userCount) FROM 
+  (SELECT COUNT(postuser) as userCount, postuser, pdate 
+  FROM Blogs GROUP BY postuser, pdate 
+  HAVING pdate = '2020-10-10') as I)";
   $result2 = mysqli_query($db, $query2);
   echo "<p class = 'bigtext'>List the users who posted the most number of blogs on 10/10/2020; if there is a tie, list all the users who have a tie.</p>";
   while($row2 = mysqli_fetch_assoc($result2)){
